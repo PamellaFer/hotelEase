@@ -1,39 +1,36 @@
 package com.projetoDeDesenvolvimento.hotelEase.models.entity
 
 import com.projetoDeDesenvolvimento.hotelEase.enum.TypePaymentEnum
-import org.apache.logging.log4j.LogManager.getLogger
-import java.time.LocalDate
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
+import jakarta.persistence.Table
 
-class Payment (users: Users, reservations: Reservations) {
+@Entity
+@Table(name = "payment")
+data class Payment (
 
-    companion object {
-        private val LOGGER = getLogger()
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // talvez nao precise de gerar automaticamente dnv pq ja faz isso na classe Users, se preicisar, gerar do reservationId abaixo tb
+    @Column(name = "user_id", unique = true, nullable = true)
+    var userId: Long? = null,
 
-    val idUser = users.idUser
-    val idReservations = reservations.idReservations
-    var typePayment = TypePaymentEnum.CARTAO_CREDITO
-    var paymentAproved: Boolean = false
+    @Column(name = "reservation_id", unique = true, nullable = true)
+    var reservationNumber: Long? = null,
 
-    fun processPayment() {
-        when (typePayment) {
-            TypePaymentEnum.CARTAO_CREDITO -> processPaymentCard()
-            TypePaymentEnum.PIX -> processPaymentPix()
-        }
-    }
-    private fun processPaymentCard(): Boolean {
-        var numberCard: String = ""
-        var codeCard: String = ""
-        var cardExpirationDate: LocalDate = LocalDate.now()
-        var nameOnCard: String = ""
+    @Column(name = "type_payment", nullable = true)
+    var typePayment: TypePaymentEnum? = null,
 
-        paymentAproved = numberCard.isNotEmpty() && codeCard.isNotEmpty() && cardExpirationDate.toString().isNotEmpty()
-                && nameOnCard.isNotEmpty()
-        return paymentAproved == true
-    }
-    private fun processPaymentPix(): Boolean {
-        LOGGER.info("Por favor, realize o pagamento pela chave pix: 123")
-        var paymentMade: Boolean = true
-        return paymentAproved == true
+    @Column(name = "payment_approved")
+    var paymentApproved: Boolean? = null,
+
+) {
+    constructor (user: Users, reservations: Reservations): this() {
+        this.userId = user.userId
+        this.reservationNumber = reservations.reservationNumber
     }
 }
+
+

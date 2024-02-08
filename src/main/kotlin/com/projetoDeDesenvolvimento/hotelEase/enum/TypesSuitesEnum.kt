@@ -2,25 +2,31 @@ package com.projetoDeDesenvolvimento.hotelEase.enum
 
 import java.math.BigDecimal
 
-enum class TypesSuitesEnum (val qtdeCamasCasal: Int,
-                            val qtdeCamasSolteiro: Int,
-                            val cobertura: Boolean,
-                            val servicoLavanderia: Boolean,
-                            val varanda: Boolean,
-                            val hidromassagem: Boolean,
-                            val secadorCabelo: Boolean,
+enum class TypesSuitesEnum (val qtyDoubleBeds: Int,
+                            val qtyOfSingleBeds: Int,
+                            val penthouse: Boolean,
+                            val laundryService: Boolean,
+                            val balcony: Boolean,
+                            val hydromassage: Boolean,
+                            val hairdryer: Boolean,
                             val wifi: Boolean,
-                            var precoDiaria: BigDecimal) {
+                            var dailyPrice: BigDecimal) {
 
-    // Suites para casal ou pessoa solteira
+    // Suítes para 1 ou 2 pessoas
+    PRESIDENTIAL_SUITE_FOR_ONE_OR_TWO_PEOPLE (1, 0, true, true, true,
+        true, true, true, BigDecimal("1600.00" ) ),
 
-    SUITE_PRESIDENCIAL(1, 1, true, true, true,
-        true, true, true, BigDecimal("1000.00" ) ),
+    EXECUTIVE_SUITE_FOR_ONE_OR_TWO_PEOPLE (1, 0, false, false, true,
+        true, true, true, BigDecimal("900.00") ),
 
-    SUITE_EXECUTIVE (1, 0, false, false, true,
-        true, true, true, BigDecimal("500.00") )
-
-    
+    STAR_SUITE_FOR_ONE_OR_TWO_PEOPLE (1, 0, false, false, false,
+        false, true, true, BigDecimal("400.00") ),
 
 
+    // Suítes para até 6 pessoas
+    FAMILY_SUITE_FOR_THREE_TO_SIX_PEOPLE(3, 0, false, false, true,
+        true, true, true, BigDecimal("1200.00")),
+
+    GROUP_SUITE_FOR_THREE_TO_SIX_PEOPLE(2, 2, false, false, true,
+        false, true, true, BigDecimal("1100.00")),
 }
