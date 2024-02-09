@@ -2,7 +2,6 @@ package com.projetoDeDesenvolvimento.hotelEase.models.entity
 
 import com.projetoDeDesenvolvimento.hotelEase.enum.PaymentStatusEnum
 import com.projetoDeDesenvolvimento.hotelEase.service.ServiceForCalculatingPayment
-import com.projetoDeDesenvolvimento.hotelEase.service.ServiceForMakingReservations
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -51,8 +50,12 @@ data class Reservations (
             this() {
         this.userId = users.userId
         this.suiteNumber = suites.suiteNumber
+
         this.totalPayable = serviceForCalculatingPayment.totalPayable()
         this.amountPaid = serviceForCalculatingPayment.amountPaid()
         this.pendingAmount = serviceForCalculatingPayment.pendingAmount()
     }
 }
+
+// INICIA NULLO E NO SERVICE DOU UM SET DO CALC
+//
