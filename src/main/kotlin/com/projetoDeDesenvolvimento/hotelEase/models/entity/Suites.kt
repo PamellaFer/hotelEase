@@ -12,6 +12,9 @@ data class Suites (
     @Column(name = "suite_number", unique = true, nullable = true)
     val suiteNumber: Long? = null,
 
+    @OneToMany(mappedBy = "suite", cascade = [CascadeType.ALL])
+    var reservations: List<Reservations> = mutableListOf(),
+
     @Column(name = "suite_available", nullable = true)
     var suiteAvailable: Boolean = true,
 

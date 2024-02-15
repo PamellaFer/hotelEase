@@ -8,13 +8,16 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 @Entity
-@Table (name = "Users")
+@Table(name = "users")
 data class Users (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", unique = true, nullable = true)
     val userId: Long? = null,
+
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL])
+    val reservations: List<Reservations> = mutableListOf(),
 
     @Column(name = "user_role", nullable = true)
     var userRole: UserRoleEnum? = null,
