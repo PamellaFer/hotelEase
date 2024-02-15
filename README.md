@@ -1,4 +1,4 @@
-## <img width="354" alt="image" src="https://github.com/PamellaFer/hotelease/assets/143462705/24d23bb1-9279-4ec7-b443-bcf2eea7cc5e">
+## <img width="485" alt="image" src="https://github.com/PamellaFer/hotelEase/assets/143462705/f27e2927-c862-4ed9-9a31-443328386550">
 
 # Sistema de Gerenciamento para Hotéis 
 
