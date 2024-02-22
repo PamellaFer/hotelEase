@@ -9,27 +9,26 @@ data class Reservations (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "reservations_id", unique = true, nullable = true)
+    @Column(name = "reservations_id", unique = true)
     val reservationId: Long? = null,
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "userId")
-    var user: Users,
+    var user: Users? = null,
 
     @ManyToOne
     @JoinColumn(name = "suite", referencedColumnName = "suiteNumber")
-    var suite: Suites,
+    var suite: Suites? = null,
 
-    @OneToOne(mappedBy = "reservationId", cascade = [CascadeType.ALL])
-    val payment: Payment,
+    @OneToOne
+    @JoinColumn(name = "reservation", referencedColumnName = "paymentId")
+    val payment: Payment? = null,
 
-    @Column(name = "date_check-in", nullable = true)
+    @Column(name = "date_check-in")
     var dateCheckIn: LocalDateTime? = null,
 
-    @Column(name = "date_check-out", nullable = true)
+    @Column(name = "date_check-out")
     var dateCheckOut: LocalDateTime? = null,
 
-    ) {
-    constructor() : this() {
-    }
-}
+)
+
