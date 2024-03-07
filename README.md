@@ -17,7 +17,7 @@ Este projeto tem o objetivo de criar uma ferramenta simples e eficiente para ger
 ## 🚀 Tecnologias
 - Ações do GitHub
 - Kotlin
-- (ainda decidindo qual será o banco de dados)
+- MySQL Server
 - Java 17 SDK
 
 ## ℹ️ Mais informações
