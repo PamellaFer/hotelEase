@@ -15,10 +15,10 @@ Este projeto tem o objetivo de criar uma ferramenta simples e eficiente para ger
 
 
 ## 🚀 Tecnologias
-- Ações do GitHub
 - Kotlin
 - MySQL Server
 - Java 17 SDK
+- GitHub Actions
 
 ## ℹ️ Mais informações
 pamella.santosbrr@gmail.com
