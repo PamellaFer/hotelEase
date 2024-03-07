@@ -13,7 +13,7 @@ data class Suites (
     val suiteNumber: Long? = null,
 
     @OneToMany
-    @JoinColumn(name = "suite", referencedColumnName = "reservationId")
+    @JoinColumn(name = "reservations", referencedColumnName = "reservation_id")
     var reservations: List<Reservations> = mutableListOf(),
 
     @Column(name = "suite_available")

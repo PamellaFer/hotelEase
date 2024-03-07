@@ -17,8 +17,8 @@ data class Users (
     val userId: Long? = null,
 
     @OneToMany
-    @JoinColumn(name = "user", referencedColumnName = "reservationId")
-    val reservations: List<Reservations> = mutableListOf(),
+    @JoinColumn(name = "reservation_id", referencedColumnName = "reservation_id")
+    val reservationId: List<Reservations> = mutableListOf(),
 
     @Column(name = "user_role")
     var userRole: UserRoleEnum? = null,

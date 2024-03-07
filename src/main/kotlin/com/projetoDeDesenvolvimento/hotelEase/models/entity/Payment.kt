@@ -15,7 +15,7 @@ data class Payment (
     val paymentId: Long? = null,
 
     @OneToOne
-    @JoinColumn(name =  "reservation_id", referencedColumnName = "reservationId")
+    @JoinColumn(name =  "reservation_id", referencedColumnName = "reservation_id")
     var reservationId: Reservations? = null,
 
     @Column(name = "type_payment")

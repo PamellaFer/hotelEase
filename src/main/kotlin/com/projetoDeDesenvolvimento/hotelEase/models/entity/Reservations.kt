@@ -9,19 +9,19 @@ data class Reservations (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "reservations_id", unique = true)
+    @Column(name = "reservation_id", unique = true)
     val reservationId: Long? = null,
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "userId")
-    var user: Users? = null,
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    var userId: Users? = null,
 
     @ManyToOne
-    @JoinColumn(name = "suite", referencedColumnName = "suiteNumber")
+    @JoinColumn(name = "suite", referencedColumnName = "suite_number")
     var suite: Suites? = null,
 
     @OneToOne
-    @JoinColumn(name = "reservation", referencedColumnName = "paymentId")
+    @JoinColumn(name = "payment_id", referencedColumnName = "payment_id")
     val payment: Payment? = null,
 
     @Column(name = "date_check-in")
