@@ -12,10 +12,6 @@ data class Suites (
     @Column(name = "suite_number", unique = true)
     val suiteNumber: Long? = null,
 
-    @OneToMany
-    @JoinColumn(name = "reservations", referencedColumnName = "reservation_id")
-    var reservations: List<Reservations> = mutableListOf(),
-
     @Column(name = "suite_available")
     var suiteAvailable: Boolean = true,
 

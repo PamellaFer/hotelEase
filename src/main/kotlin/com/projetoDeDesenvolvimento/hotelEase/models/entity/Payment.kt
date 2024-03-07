@@ -3,8 +3,8 @@ package com.projetoDeDesenvolvimento.hotelEase.models.entity
 import com.projetoDeDesenvolvimento.hotelEase.enum.PaymentStatusEnum
 import com.projetoDeDesenvolvimento.hotelEase.enum.TypePaymentEnum
 import jakarta.persistence.*
-
 import java.math.BigDecimal
+
 @Entity
 @Table(name = "payment")
 data class Payment (
@@ -37,5 +37,3 @@ data class Payment (
     var paymentApproved: Boolean? = null,
 
 )
-
-
