@@ -14,10 +14,6 @@ data class Payment (
     @Column(name = "payment_id", unique = true)
     val paymentId: Long? = null,
 
-    @OneToOne
-    @JoinColumn(name =  "reservation_id", referencedColumnName = "reservation_id")
-    var reservationId: Reservations? = null,
-
     @Column(name = "type_payment")
     var typePayment: TypePaymentEnum? = null,
 
