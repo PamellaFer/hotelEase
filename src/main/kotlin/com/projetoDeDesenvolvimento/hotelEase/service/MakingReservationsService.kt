@@ -3,7 +3,7 @@
 //import org.kxtra.slf4j.getLogger
 //import java.time.LocalDateTime
 //
-//class ServiceForMakingReservations {
+//class MakingReservationsService {
 //
 //    companion object { private val LOGGER = getLogger() }
 //
